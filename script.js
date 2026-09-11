@@ -1,4 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Stable home navigation for both GitHub Pages and the custom domain.
+  // On GitHub Pages the site lives under /kotomatika-site/,
+  // while on kotomatika.ru it lives at /.
+  const getSiteRoot = () => {
+    const host = window.location.hostname.toLowerCase();
+    const path = window.location.pathname;
+
+    if (host.endsWith('github.io')) {
+      const repoPrefix = '/kotomatika-site/';
+      if (path === '/kotomatika-site' || path.startsWith(repoPrefix)) {
+        return repoPrefix;
+      }
+    }
+
+    return '/';
+  };
+
+  const siteRoot = getSiteRoot();
+
+  // Logo and every visible "Главная" link always return to the actual site root.
+  document.querySelectorAll('a').forEach((link) => {
+    const label = (link.textContent || '').trim();
+    if (link.classList.contains('brand') || label === 'Главная') {
+      link.setAttribute('href', siteRoot);
+    }
+  });
+
   // FAQ
   document.querySelectorAll('.faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -53,7 +80,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Booking form: website -> Yandex Cloud Function -> Google Apps Script -> Google Sheets.
+  // Contact rules:
+  // - Russian phone may start with +7, 7 or 8; separators are allowed.
+  // - It is always normalized to +7XXXXXXXXXX before sending.
+  // - Telegram username must start with @.
+  const normalizeLeadContact = (rawValue) => {
+    const raw = String(rawValue || '').trim();
+
+    if (raw.startsWith('@')) {
+      if (!/^@[A-Za-z0-9_]{5,32}$/.test(raw)) {
+        return {
+          ok: false,
+          error: 'Введите Telegram в формате @username (латинские буквы, цифры или _).'
+        };
+      }
+      return {ok: true, value: raw};
+    }
+
+    const digits = raw.replace(/\D/g, '');
+
+    if (digits.length === 11 && (digits.startsWith('7') || digits.startsWith('8'))) {
+      return {ok: true, value: '+7' + digits.slice(1)};
+    }
+
+    return {
+      ok: false,
+      error: 'Введите российский номер, начинающийся с +7 или 8, либо Telegram в формате @username.'
+    };
+  };
+
+  // Booking form: website -> Yandex Cloud Function -> YDB.
   document.querySelectorAll('form[data-booking]').forEach((form) => {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -62,12 +118,23 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitButton = form.querySelector('button[type="submit"]');
       const formData = new FormData(form);
 
+      const contactResult = normalizeLeadContact(formData.get('contact'));
+
+      if (!contactResult.ok) {
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.add('notice-error');
+          notice.textContent = contactResult.error;
+        }
+        return;
+      }
+
       const payload = {
         name: String(formData.get('name') || '').trim(),
         student: String(formData.get('student') || '').trim(),
         class: String(formData.get('class') || '').trim(),
         goal: String(formData.get('goal') || '').trim(),
-        contact: String(formData.get('contact') || '').trim(),
+        contact: contactResult.value,
         comment: String(formData.get('comment') || '').trim(),
         source: window.location.href
       };
