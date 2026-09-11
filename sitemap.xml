@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://kotomatika.ru/</loc></url>
-<url><loc>https://kotomatika.ru/about/</loc></url>
-<url><loc>https://kotomatika.ru/teachers/</loc></url>
-<url><loc>https://kotomatika.ru/classes/</loc></url>
-<url><loc>https://kotomatika.ru/groups/</loc></url>
-<url><loc>https://kotomatika.ru/oge/</loc></url>
-<url><loc>https://kotomatika.ru/ege/</loc></url>
-<url><loc>https://kotomatika.ru/prices/</loc></url>
-<url><loc>https://kotomatika.ru/reviews/</loc></url>
-<url><loc>https://kotomatika.ru/faq/</loc></url>
-<url><loc>https://kotomatika.ru/contacts/</loc></url>
-<url><loc>https://kotomatika.ru/diagnostic/</loc></url>
-<url><loc>https://kotomatika.ru/booking/</loc></url>
-<url><loc>https://kotomatika.ru/privacy/</loc></url>
-<url><loc>https://kotomatika.ru/classes/1/</loc></url>
-<url><loc>https://kotomatika.ru/classes/2/</loc></url>
-<url><loc>https://kotomatika.ru/classes/3/</loc></url>
-<url><loc>https://kotomatika.ru/classes/4/</loc></url>
-<url><loc>https://kotomatika.ru/classes/5/</loc></url>
-<url><loc>https://kotomatika.ru/classes/6/</loc></url>
-<url><loc>https://kotomatika.ru/classes/7/</loc></url>
-<url><loc>https://kotomatika.ru/classes/8/</loc></url>
-<url><loc>https://kotomatika.ru/classes/9/</loc></url>
-<url><loc>https://kotomatika.ru/classes/10/</loc></url>
-<url><loc>https://kotomatika.ru/classes/11/</loc></url>
-<url><loc>https://kotomatika.ru/teachers/egor/</loc></url>
-<url><loc>https://kotomatika.ru/teachers/misha/</loc></url>
-<url><loc>https://kotomatika.ru/teachers/ivan/</loc></url>
-<url><loc>https://kotomatika.ru/teachers/nikita/</loc></url>
+  <url><loc>https://kotomatika.ru/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/about/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/teachers/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/directions/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/oge/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/ege/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/individual/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/groups/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/reviews/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/prices/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/faq/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/contacts/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/booking/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/privacy/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/1/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/2/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/3/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/4/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/5/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/6/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/7/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/8/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/9/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/10/</loc><lastmod>2026-09-11</lastmod></url>
+  <url><loc>https://kotomatika.ru/classes/11/</loc><lastmod>2026-09-11</lastmod></url>
 </urlset>

@@ -1,0 +1,3 @@
+KOTOMATIKA TEST SERVER
+Version: 2026-09-11 FAQ_CLASSES_UPDATED + GitHub Pages + Google Sheets leads
+Lead flow: site -> Yandex Cloud Function -> Google Apps Script -> Google Sheets

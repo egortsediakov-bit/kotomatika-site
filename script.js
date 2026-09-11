@@ -1,111 +1,228 @@
-
-document.addEventListener('DOMContentLoaded',()=>{
-  document.querySelectorAll('.section,.page-hero,.hero').forEach(el=>el.classList.add('reveal'));
-  if('IntersectionObserver' in window){
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}}),{threshold:.08});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('seen'));
-
-  const burger=document.querySelector('.burger'), panel=document.querySelector('.mobile-panel');
-  if(burger&&panel){
-    burger.addEventListener('click',()=>{
-      const open=panel.classList.toggle('open');
-      burger.setAttribute('aria-expanded',open?'true':'false');
-      document.body.style.overflow=open?'hidden':'';
+document.addEventListener('DOMContentLoaded', () => {
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      if (!item) return;
+      item.classList.toggle('open');
+      const icon = btn.querySelector('span');
+      if (icon) icon.textContent = item.classList.contains('open') ? '−' : '+';
     });
-    panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-      panel.classList.remove('open'); document.body.style.overflow='';
-    }));
+  });
+
+  // Mobile menu
+  const menuBtn = document.querySelector('.menu');
+  const nav = document.querySelector('.nav');
+
+  if (menuBtn && nav) {
+    const openMenu = () => {
+      nav.classList.add('is-open');
+      document.body.classList.add('mobile-menu-open');
+      menuBtn.setAttribute('aria-expanded', 'true');
+      menuBtn.setAttribute('aria-label', 'Закрыть меню');
+      menuBtn.textContent = '×';
+    };
+
+    const closeMenu = () => {
+      nav.classList.remove('is-open');
+      document.body.classList.remove('mobile-menu-open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.setAttribute('aria-label', 'Открыть меню');
+      menuBtn.textContent = '☰';
+    };
+
+    menuBtn.setAttribute('aria-expanded', 'false');
+
+    menuBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      nav.classList.contains('is-open') ? closeMenu() : openMenu();
+    });
+
+    // A tap on any menu item must work normally and close the overlay.
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
   }
 
-  document.querySelectorAll('.faq-q').forEach(b=>b.addEventListener('click',()=>{
-    const item=b.closest('.faq-item');
-    item.classList.toggle('open');
-    b.querySelector('b').textContent=item.classList.contains('open')?'−':'+';
-  }));
-
-  const form=document.querySelector('#bookingForm');
-  if(form){
-    form.addEventListener('submit', async e=>{
+  // Booking form: website -> Yandex Cloud Function -> Google Apps Script -> Google Sheets.
+  document.querySelectorAll('form[data-booking]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const submit = form.querySelector('button[type="submit"]');
-      const box = document.querySelector('#bookingResult');
-      const d = new FormData(form);
-
-      // Honeypot: обычный пользователь это поле не видит и не заполняет.
-      if ((d.get('website') || '').trim()) return;
+      const notice = form.querySelector('.notice');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const formData = new FormData(form);
 
       const payload = {
-        name: (d.get('name') || '').trim(),
-        student: (d.get('student') || '').trim(),
-        class: (d.get('class') || '').trim(),
-        goal: (d.get('goal') || '').trim(),
-        contact: (d.get('contact') || '').trim(),
-        comment: (d.get('comment') || '').trim(),
-        source: location.href,
-        ts: new Date().toISOString()
+        name: String(formData.get('name') || '').trim(),
+        student: String(formData.get('student') || '').trim(),
+        class: String(formData.get('class') || '').trim(),
+        goal: String(formData.get('goal') || '').trim(),
+        contact: String(formData.get('contact') || '').trim(),
+        comment: String(formData.get('comment') || '').trim(),
+        source: window.location.href
       };
 
-      if(!payload.name || !payload.student || !payload.class || !payload.goal || !payload.contact){
-        if(box){ box.style.display='block'; box.innerHTML='<b>Проверьте поля.</b><p>Заполните имя, ученика, класс, цель и контакт.</p>'; }
+      const apiUrl = String(window.KOTOMATIKA_API_URL || '').trim();
+
+      if (!apiUrl) {
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.add('notice-error');
+          notice.textContent = 'Не удалось отправить заявку. Напишите администратору: @kotomathadmin.';
+        }
         return;
       }
 
-      const api = (window.KOTOMATIKA_API_URL || '').trim();
-
-      submit.disabled = true;
-      submit.textContent = 'Отправляем…';
-      if(box){ box.style.display='block'; box.innerHTML='<p>Отправляем заявку администратору…</p>'; }
-
-      let sent = false;
-      let errorText = '';
-
-      if(api && !api.includes('PASTE_YANDEX_FUNCTION_URL_HERE')){
-        try{
-          const r = await fetch(api, {
-            method:'POST',
-            headers:{'Content-Type':'application/json'},
-            body:JSON.stringify(payload)
-          });
-          const data = await r.json().catch(()=>({}));
-          sent = r.ok && data.ok === true;
-          if(!sent) errorText = data.error || `HTTP ${r.status}`;
-        }catch(err){
-          errorText = err && err.message ? err.message : 'network error';
-        }
-      }else{
-        errorText = 'API URL не настроен';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.textContent;
+        submitButton.textContent = 'Отправляем…';
       }
 
-      if(sent){
-        if(box){
-          box.style.display='block';
-          box.innerHTML='<b>Готово!</b><p>Заявка отправлена администратору. Мы свяжемся с вами по указанному контакту.</p>';
+      if (notice) {
+        notice.style.display = 'block';
+        notice.classList.remove('notice-error');
+        notice.textContent = 'Отправляем заявку…';
+      }
+
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 12000);
+
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload),
+          signal: controller.signal
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok || data.ok !== true) {
+          throw new Error(data.error || `HTTP ${response.status}`);
         }
+
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.remove('notice-error');
+          notice.textContent = 'Готово! Заявка отправлена. Мы свяжемся с вами по указанному контакту.';
+        }
+
         form.reset();
-      }else{
-        const text=`Заявка в Котоматику
-
-Имя: ${payload.name}
-Ученик: ${payload.student}
-Класс: ${payload.class}
-Цель: ${payload.goal}
-Контакт: ${payload.contact}
-Комментарий: ${payload.comment || '—'}`;
-
-        try{ await navigator.clipboard.writeText(text); }catch(e){}
-
-        if(box){
-          box.style.display='block';
-          box.innerHTML='<b>Автоматическая отправка временно недоступна.</b><p>Заявка скопирована. Откроем Telegram администратора — вставьте текст в чат.</p>';
+      } catch (error) {
+        console.error('Booking submit error:', error);
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.add('notice-error');
+          notice.innerHTML = 'Не удалось отправить заявку автоматически. Напишите администратору в Telegram: <a href="https://t.me/kotomathadmin" target="_blank" rel="noopener">@kotomathadmin</a>.';
         }
-        window.open('https://t.me/kotomathadmin','_blank');
-        console.warn('Lead API error:', errorText);
+      } finally {
+        clearTimeout(timer);
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = submitButton.dataset.originalText || 'Записаться на бесплатный урок';
+        }
       }
-
-      submit.disabled = false;
-      submit.textContent = 'Отправить заявку';
     });
-  }
+  });
+
+  // Class sliders: arrows + mouse drag + touch swipe + wheel.
+  // Important: a simple click on a class must navigate normally.
+  document.querySelectorAll('.class-slider-wrap').forEach((wrap) => {
+    const slider = wrap.querySelector('.class-slider');
+    const track = wrap.querySelector('.class-slider-track');
+    const prev = wrap.querySelector('.class-prev');
+    const next = wrap.querySelector('.class-next');
+    if (!slider || !track) return;
+
+    const getStep = () => {
+      const card = track.querySelector('a');
+      if (!card) return 240;
+      const gap = parseFloat(getComputedStyle(track).gap) || 10;
+      return card.getBoundingClientRect().width + gap;
+    };
+
+    const updateButtons = () => {
+      const max = Math.max(0, slider.scrollWidth - slider.clientWidth);
+      if (prev) prev.disabled = slider.scrollLeft <= 2;
+      if (next) next.disabled = slider.scrollLeft >= max - 2;
+    };
+
+    prev?.addEventListener('click', () => {
+      slider.scrollBy({left: -getStep(), behavior: 'smooth'});
+    });
+    next?.addEventListener('click', () => {
+      slider.scrollBy({left: getStep(), behavior: 'smooth'});
+    });
+
+    slider.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        e.preventDefault();
+        slider.scrollLeft += e.deltaY;
+      }
+    }, {passive:false});
+
+    let pressed = false;
+    let dragging = false;
+    let startX = 0;
+    let startScroll = 0;
+    let pointerId = null;
+
+    slider.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      pressed = true;
+      dragging = false;
+      startX = e.clientX;
+      startScroll = slider.scrollLeft;
+      pointerId = e.pointerId;
+    });
+
+    slider.addEventListener('pointermove', (e) => {
+      if (!pressed || e.pointerId !== pointerId) return;
+      const dx = e.clientX - startX;
+      if (!dragging && Math.abs(dx) < 7) return;
+      dragging = true;
+      slider.classList.add('is-dragging');
+      slider.scrollLeft = startScroll - dx;
+    });
+
+    const finishPointer = () => {
+      if (!pressed) return;
+      pressed = false;
+      slider.classList.remove('is-dragging');
+      pointerId = null;
+      // Keep the flag for the immediately following click event.
+      setTimeout(() => { dragging = false; }, 0);
+      updateButtons();
+    };
+
+    slider.addEventListener('pointerup', finishPointer);
+    slider.addEventListener('pointercancel', finishPointer);
+
+    // A click is the primary navigation mechanism. It is blocked only when
+    // the user actually dragged the slider, preventing accidental navigation.
+    track.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (dragging) {
+          e.preventDefault();
+          e.stopPropagation();
+          dragging = false;
+        }
+      });
+    });
+
+    slider.addEventListener('scroll', updateButtons, {passive:true});
+    window.addEventListener('resize', updateButtons);
+    updateButtons();
+  });
 });
