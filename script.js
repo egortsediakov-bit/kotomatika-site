@@ -109,6 +109,25 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   };
 
+  const validatePersonName = (value, label) => {
+    const name = String(value || '').trim();
+
+    if (!name) {
+      return {ok: false, error: `Заполните поле «${label}».`};
+    }
+
+    // Letters only, but allow spaces and hyphens between name parts.
+    // Supports Russian and Latin letters, including Ё/ё.
+    if (!/^[A-Za-zА-Яа-яЁё]+(?:[ -][A-Za-zА-Яа-яЁё]+)*$/.test(name)) {
+      return {
+        ok: false,
+        error: `В поле «${label}» можно использовать только буквы, пробелы и дефис.`
+      };
+    }
+
+    return {ok: true, value: name};
+  };
+
   // Booking form: website -> Yandex Cloud Function -> YDB.
   document.querySelectorAll('form[data-booking]').forEach((form) => {
     form.addEventListener('submit', async (e) => {
@@ -118,7 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const submitButton = form.querySelector('button[type="submit"]');
       const formData = new FormData(form);
 
+      const parentNameResult = validatePersonName(formData.get('name'), 'Имя родителя');
+      const studentNameResult = validatePersonName(formData.get('student'), 'Имя ученика');
       const contactResult = normalizeLeadContact(formData.get('contact'));
+
+      if (!parentNameResult.ok || !studentNameResult.ok) {
+        const firstError = !parentNameResult.ok ? parentNameResult.error : studentNameResult.error;
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.add('notice-error');
+          notice.textContent = firstError;
+        }
+        return;
+      }
 
       if (!contactResult.ok) {
         if (notice) {
@@ -130,8 +161,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       const payload = {
-        name: String(formData.get('name') || '').trim(),
-        student: String(formData.get('student') || '').trim(),
+        name: parentNameResult.value,
+        student: studentNameResult.value,
         class: String(formData.get('class') || '').trim(),
         goal: String(formData.get('goal') || '').trim(),
         contact: contactResult.value,

@@ -39,8 +39,8 @@
 </div></header>
 <main><section class="hero-small"><div class="container"><div class="eyebrow">Бесплатный урок</div><h1>Давайте познакомимся с математикой по-новому</h1><p>Оставьте контакты и расскажите, что сейчас нужно подтянуть. Мы свяжемся с вами и предложим подходящий формат.</p></div></section>
 <section class="section"><div class="container"><div class="form-wrap"><form data-booking><div class="form-grid">
-<div><label for="name">Ваше имя</label><input id="name" name="name" required placeholder="Как к вам обращаться?"></div>
-<div><label for="student">Имя ученика</label><input id="student" name="student" required placeholder="Имя ученика"></div>
+<div><label for="name">Ваше имя</label><input id="name" name="name" required inputmode="text" autocomplete="name" pattern="[A-Za-zА-Яа-яЁё -]+" title="Только буквы, пробелы и дефис" placeholder="Как к вам обращаться?"></div>
+<div><label for="student">Имя ученика</label><input id="student" name="student" required inputmode="text" autocomplete="off" pattern="[A-Za-zА-Яа-яЁё -]+" title="Только буквы, пробелы и дефис" placeholder="Имя ученика"></div>
 <div><label for="class">Класс</label><select id="class" name="class" required><option value="">Выберите класс</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option></select></div>
 <div><label for="goal">Цель</label><select id="goal" name="goal" required><option value="">Выберите цель</option><option>Школьная математика</option><option>Закрыть пробелы</option><option>Олимпиадная математика</option><option>ОГЭ</option><option>ЕГЭ</option><option>Поступление в школу / класс</option><option>Другое</option></select></div>
 <div class="full"><label for="contact">Телефон / Telegram</label><input id="contact" name="contact" required placeholder="+7 999 123-45-67 / 8 999 123-45-67 / @username" autocomplete="tel" autocapitalize="off" spellcheck="false"><p class="note" style="margin:8px 0 0">Телефон можно ввести с +7 или 8 — в заявке он автоматически сохранится в формате +7. Telegram укажите с символа @.</p></div>
@@ -54,5 +54,5 @@
 <div><strong>Помощь</strong><a href="../faq/index.html">FAQ</a><a href="../contacts/index.html">Контакты</a><a href="../booking/index.html">Записаться</a></div>
 </div><div class="container footer-bottom">© 2026 Котоматика · <a href="../privacy/index.html">Политика конфиденциальности</a> ·</div></footer>
 <script src="../config.js?v=20260911-sheets1"></script>
-<script src="../script.js?v=20260912-contact1"></script>
+<script src="../script.js?v=20260912-namecheck1"></script>
 </body></html>
