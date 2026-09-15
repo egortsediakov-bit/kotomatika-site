@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-09-15 22:34">
+  <shop>
+    <name>Котоматика</name>
+    <company>Котоматика</company>
+    <url>https://kotomatika.ru/</url>
+
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+
+    <categories>
+      <category id="1">Онлайн-занятия по математике</category>
+      <category id="2" parentId="1">Групповые занятия</category>
+      <category id="3" parentId="1">Подготовка к экзаменам</category>
+      <category id="4" parentId="1">Индивидуальные занятия</category>
+    </categories>
+
+    <offers>
+      <offer id="school-math" available="true">
+        <name>Школьная математика — групповые занятия</name>
+        <url>https://kotomatika.ru/groups/</url>
+        <price>4199</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <description>Групповые занятия по школьной математике. До 6–7 человек, продолжительность занятия — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+      </offer>
+
+      <offer id="olympiad-math" available="true">
+        <name>Олимпиадная математика — групповые занятия</name>
+        <url>https://kotomatika.ru/groups/</url>
+        <price>4399</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>2</categoryId>
+        <description>Групповые занятия по олимпиадной математике. До 6–7 человек, продолжительность занятия — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+      </offer>
+
+      <offer id="exam-prep" available="true">
+        <name>Подготовка к ОГЭ и ЕГЭ по математике — группа</name>
+        <url>https://kotomatika.ru/oge/</url>
+        <price>4699</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>3</categoryId>
+        <description>Подготовка к ОГЭ и ЕГЭ по математике в группе до 6–7 человек. Занятия проходят онлайн в Zoom или Яндекс Телемост.</description>
+      </offer>
+
+      <offer id="individual" available="true">
+        <name>Индивидуальный урок по математике</name>
+        <url>https://kotomatika.ru/booking/</url>
+        <price>1799</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>4</categoryId>
+        <description>Индивидуальное занятие по математике один на один. Продолжительность — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+      </offer>
+    </offers>
+  </shop>
+</yml_catalog>
