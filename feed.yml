@@ -1,56 +1,112 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-09-15 22:34">
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-09-15 23:45">
   <shop>
     <name>Котоматика</name>
-    <company>Котоматика</company>
     <url>https://kotomatika.ru/</url>
+    <email>kotomatika.online@gmail.com</email>
+    <picture>https://kotomatika.ru/assets/favicon.png</picture>
+    <description>Онлайн-школа математики для учеников 1–11 классов.</description>
 
     <currencies>
       <currency id="RUR" rate="1"/>
     </currencies>
 
     <categories>
-      <category id="1">Онлайн-занятия по математике</category>
-      <category id="2" parentId="1">Групповые занятия</category>
-      <category id="3" parentId="1">Подготовка к экзаменам</category>
-      <category id="4" parentId="1">Индивидуальные занятия</category>
+      <category id="1">Математика</category>
     </categories>
 
     <offers>
-      <offer id="school-math" available="true">
+      <offer id="school-math">
         <name>Школьная математика — групповые занятия</name>
-        <url>https://kotomatika.ru/groups/</url>
-        <price>4199</price>
+        <url>https://kotomatika.ru/school/</url>
+        <categoryId>1</categoryId>
+        <price>0</price>
         <currencyId>RUR</currencyId>
-        <categoryId>2</categoryId>
-        <description>Групповые занятия по школьной математике. До 6–7 человек, продолжительность занятия — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+        <param name="Ежемесячная цена">4199</param>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть бесплатная часть">true</param>
+        <param name="Есть домашние работы">true</param>
+        <param name="Классы">1-11</param>
+        <param name="План" unit="Диагностика" hours="1" order="1">Определяем текущий уровень ученика и основные пробелы.</param>
+        <param name="План" unit="Обучение" hours="6" order="2">Разбираем школьные темы, закрепляем базу и отрабатываем практику.</param>
+        <param name="План" unit="Закрепление" hours="1" order="3">Разбираем ошибки и закрепляем изученный материал.</param>
+        <description>Групповые онлайн-занятия по школьной математике для 1–11 классов. До 6–7 учеников, занятие 60 минут.</description>
       </offer>
 
-      <offer id="olympiad-math" available="true">
+      <offer id="olympiad-math">
         <name>Олимпиадная математика — групповые занятия</name>
-        <url>https://kotomatika.ru/groups/</url>
-        <price>4399</price>
+        <url>https://kotomatika.ru/olympiad/</url>
+        <categoryId>1</categoryId>
+        <price>0</price>
         <currencyId>RUR</currencyId>
-        <categoryId>2</categoryId>
-        <description>Групповые занятия по олимпиадной математике. До 6–7 человек, продолжительность занятия — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+        <param name="Ежемесячная цена">4399</param>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть бесплатная часть">true</param>
+        <param name="Есть домашние работы">true</param>
+        <param name="Классы">1-11</param>
+        <param name="План" unit="Диагностика" hours="1" order="1">Определяем уровень и опыт решения нестандартных задач.</param>
+        <param name="План" unit="Методы решения" hours="6" order="2">Изучаем олимпиадные идеи и методы решения задач.</param>
+        <param name="План" unit="Практика" hours="1" order="3">Решаем нестандартные задачи и разбираем ошибки.</param>
+        <description>Групповые онлайн-занятия по олимпиадной математике. Развитие математического мышления и подготовка к олимпиадам.</description>
       </offer>
 
-      <offer id="exam-prep" available="true">
-        <name>Подготовка к ОГЭ и ЕГЭ по математике — группа</name>
+      <offer id="oge-math">
+        <name>Подготовка к ОГЭ по математике</name>
         <url>https://kotomatika.ru/oge/</url>
-        <price>4699</price>
+        <categoryId>1</categoryId>
+        <price>0</price>
         <currencyId>RUR</currencyId>
-        <categoryId>3</categoryId>
-        <description>Подготовка к ОГЭ и ЕГЭ по математике в группе до 6–7 человек. Занятия проходят онлайн в Zoom или Яндекс Телемост.</description>
+        <param name="Ежемесячная цена">4699</param>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть бесплатная часть">true</param>
+        <param name="Есть домашние работы">true</param>
+        <param name="Классы">9</param>
+        <param name="План" unit="Диагностика" hours="1" order="1">Определяем текущий уровень и проблемные задания ОГЭ.</param>
+        <param name="План" unit="Подготовка" hours="6" order="2">Разбираем темы экзамена и отрабатываем задания.</param>
+        <param name="План" unit="Контроль" hours="1" order="3">Решаем варианты, анализируем ошибки и корректируем подготовку.</param>
+        <description>Онлайн-подготовка к ОГЭ по математике в группе до 6–7 учеников. Работа по текущему уровню, практика и разбор ошибок.</description>
       </offer>
 
-      <offer id="individual" available="true">
-        <name>Индивидуальный урок по математике</name>
-        <url>https://kotomatika.ru/booking/</url>
+      <offer id="ege-math">
+        <name>Подготовка к ЕГЭ по математике</name>
+        <url>https://kotomatika.ru/ege/</url>
+        <categoryId>1</categoryId>
+        <price>0</price>
+        <currencyId>RUR</currencyId>
+        <param name="Ежемесячная цена">4699</param>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть бесплатная часть">true</param>
+        <param name="Есть домашние работы">true</param>
+        <param name="Классы">10-11</param>
+        <param name="План" unit="Диагностика" hours="1" order="1">Определяем текущий уровень и проблемные задания ЕГЭ.</param>
+        <param name="План" unit="Подготовка" hours="6" order="2">Системно разбираем темы экзамена и отрабатываем задания.</param>
+        <param name="План" unit="Контроль" hours="1" order="3">Решаем варианты, анализируем ошибки и корректируем подготовку.</param>
+        <description>Онлайн-подготовка к ЕГЭ по математике в группе до 6–7 учеников. Системная теория, практика и регулярная работа над ошибками.</description>
+      </offer>
+
+      <offer id="individual-math">
+        <name>Индивидуальные занятия по математике</name>
+        <url>https://kotomatika.ru/individual/</url>
+        <categoryId>1</categoryId>
         <price>1799</price>
         <currencyId>RUR</currencyId>
-        <categoryId>4</categoryId>
-        <description>Индивидуальное занятие по математике один на один. Продолжительность — 1 час. Онлайн в Zoom или Яндекс Телемост.</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Тип обучения">Курс</param>
+        <param name="Есть бесплатная часть">true</param>
+        <param name="Классы">1-11</param>
+        <param name="План" unit="Диагностика" hours="1" order="1">Определяем текущий уровень и учебную цель.</param>
+        <param name="План" unit="Объяснение" hours="1" order="2">Разбираем тему индивидуально с преподавателем.</param>
+        <param name="План" unit="Практика" hours="1" order="3">Закрепляем материал на задачах и разбираем ошибки.</param>
+        <description>Индивидуальное онлайн-занятие по математике один на один с преподавателем для учеников 1–11 классов.</description>
       </offer>
     </offers>
   </shop>
