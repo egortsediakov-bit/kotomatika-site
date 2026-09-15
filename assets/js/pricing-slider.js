@@ -28,36 +28,60 @@ document.addEventListener('DOMContentLoaded', () => {
   next?.addEventListener('click', () => goTo(currentIndex() + 1));
   dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-  // Mouse drag / touch swipe.
+  // Mouse drag / touch swipe. Links and buttons remain normally clickable.
+  let pointerActive = false;
   let isDragging = false;
   let startX = 0;
   let startScroll = 0;
-  let moved = false;
+  let suppressClick = false;
+  let activePointerId = null;
+  const DRAG_THRESHOLD = 8;
 
   slider.addEventListener('pointerdown', (e) => {
     if (e.button !== 0 && e.pointerType === 'mouse') return;
-    isDragging = true;
-    moved = false;
+
+    // A press that starts on a CTA is a click, not a slider drag.
+    if (e.target.closest('a, button, input, select, textarea, label')) {
+      pointerActive = false;
+      isDragging = false;
+      suppressClick = false;
+      return;
+    }
+
+    pointerActive = true;
+    isDragging = false;
+    suppressClick = false;
+    activePointerId = e.pointerId;
     startX = e.clientX;
     startScroll = slider.scrollLeft;
-    slider.classList.add('is-dragging');
-    slider.setPointerCapture?.(e.pointerId);
   });
 
   slider.addEventListener('pointermove', (e) => {
-    if (!isDragging) return;
+    if (!pointerActive || e.pointerId !== activePointerId) return;
     const dx = e.clientX - startX;
-    if (Math.abs(dx) > 4) moved = true;
+
+    // Do not hijack an ordinary tap/click. Dragging starts only after
+    // a deliberate horizontal movement.
+    if (!isDragging) {
+      if (Math.abs(dx) < DRAG_THRESHOLD) return;
+      isDragging = true;
+      suppressClick = true;
+      slider.classList.add('is-dragging');
+      slider.setPointerCapture?.(e.pointerId);
+    }
+
     slider.scrollLeft = startScroll - dx;
   });
 
   const finishDrag = (e) => {
-    if (!isDragging) return;
+    if (!pointerActive && !isDragging) return;
+    const didDrag = isDragging;
+    pointerActive = false;
     isDragging = false;
+    activePointerId = null;
     slider.classList.remove('is-dragging');
 
-    // Snap to the nearest card after dragging.
-    if (moved) goTo(currentIndex());
+    if (didDrag) goTo(currentIndex());
   };
 
   slider.addEventListener('pointerup', finishDrag);
@@ -66,13 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isDragging && e.pointerType === 'mouse') finishDrag(e);
   });
 
-  // Prevent accidental link clicks after a drag.
+  // Suppress only the synthetic click produced immediately after a real drag.
   slider.addEventListener('click', (e) => {
-    if (moved) {
-      e.preventDefault();
-      e.stopPropagation();
-      moved = false;
-    }
+    if (!suppressClick) return;
+    e.preventDefault();
+    e.stopPropagation();
+    suppressClick = false;
   }, true);
 
   slider.addEventListener('scroll', () => {
