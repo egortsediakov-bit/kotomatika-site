@@ -1,4 +1,38 @@
+window.KOTOMATIKA_PARENT_CONFIRM_VERSION = '2.2';
 document.addEventListener('DOMContentLoaded', () => {
+  const METRIKA_ID = 112505956;
+  const trackMetrikaGoal = (goal, params = {}) => {
+    try {
+      if (typeof window.ym === 'function') {
+        window.ym(METRIKA_ID, 'reachGoal', goal, params);
+      }
+    } catch (error) {
+      console.warn('Metrika goal failed:', goal, error);
+    }
+  };
+
+  // Explicit funnel events for advertising traffic.
+  document.querySelectorAll('[data-metrika-goal]').forEach((element) => {
+    element.addEventListener('click', () => {
+      trackMetrikaGoal(element.dataset.metrikaGoal, {
+        path: window.location.pathname,
+        href: element.getAttribute('href') || ''
+      });
+    });
+  });
+
+  // Cards and CTA buttons can preselect a goal in the nearest conversion form.
+  document.querySelectorAll('[data-goal-value]').forEach((element) => {
+    element.addEventListener('click', () => {
+      const wanted = String(element.dataset.goalValue || '');
+      const localForm = document.querySelector('form[data-booking]');
+      const goalSelect = localForm?.querySelector('select[name="goal"]');
+      if (!goalSelect) return;
+      const option = [...goalSelect.options].find((item) => item.value === wanted || item.textContent.trim() === wanted);
+      if (option) goalSelect.value = option.value || option.textContent.trim();
+    });
+  });
+
   // Stable home navigation for both GitHub Pages and the custom domain.
   // On GitHub Pages the site lives under /kotomatika-site/,
   // while on kotomatika.ru it lives at /.
@@ -128,8 +162,84 @@ document.addEventListener('DOMContentLoaded', () => {
     return {ok: true, value: name};
   };
 
+  // Parent confirmation before sending a lead.
+  // The website accepts applications from a parent or legal representative,
+  // not directly from a child. The modal is injected once and reused by all forms.
+  const confirmParentSubmission = () => new Promise((resolve) => {
+    let modal = document.querySelector('[data-parent-confirm-modal]');
+
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.className = 'parent-confirm-modal';
+      modal.setAttribute('data-parent-confirm-modal', '');
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+        <div class="parent-confirm-backdrop" data-parent-confirm-cancel></div>
+        <div class="parent-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="parent-confirm-title" aria-describedby="parent-confirm-text">
+          <button class="parent-confirm-close" type="button" aria-label="Закрыть" data-parent-confirm-cancel>×</button>
+          <div class="parent-confirm-icon" aria-hidden="true">👨‍👩‍👧</div>
+          <div class="eyebrow">Перед отправкой заявки</div>
+          <h3 id="parent-confirm-title">Заявку должен отправить взрослый</h3>
+          <p id="parent-confirm-text">Для записи на обучение заявку должен подтвердить родитель или законный представитель ребёнка.</p>
+          <div class="parent-confirm-actions">
+            <button class="btn primary" type="button" data-parent-confirm-ok>Я родитель / представитель</button>
+            <button class="btn ghost" type="button" data-parent-confirm-cancel>Назад</button>
+          </div>
+        </div>`;
+      document.body.appendChild(modal);
+    }
+
+    const okButton = modal.querySelector('[data-parent-confirm-ok]');
+    const cancelButtons = modal.querySelectorAll('[data-parent-confirm-cancel]');
+    const previouslyFocused = document.activeElement;
+
+    const finish = (answer) => {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('parent-confirm-open');
+      document.removeEventListener('keydown', onKeydown);
+      okButton?.removeEventListener('click', onConfirm);
+      cancelButtons.forEach((button) => button.removeEventListener('click', onCancel));
+      if (previouslyFocused && typeof previouslyFocused.focus === 'function') previouslyFocused.focus();
+      resolve(answer);
+    };
+
+    const onConfirm = () => finish(true);
+    const onCancel = () => finish(false);
+    const onKeydown = (event) => {
+      if (event.key === 'Escape') finish(false);
+    };
+
+    okButton?.addEventListener('click', onConfirm);
+    cancelButtons.forEach((button) => button.addEventListener('click', onCancel));
+    document.addEventListener('keydown', onKeydown);
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('parent-confirm-open');
+    setTimeout(() => okButton?.focus(), 0);
+  });
+
   // Booking form: website -> Yandex Cloud Function -> YDB.
   document.querySelectorAll('form[data-booking]').forEach((form) => {
+    let formStarted = false;
+    const funnelPrefix = String(form.dataset.metrikaPrefix || '').trim();
+    const funnelGoal = (stage) => {
+      if (form.hasAttribute('data-home-booking')) return `home_form_${stage}`;
+      if (funnelPrefix) return `${funnelPrefix}_form_${stage}`;
+      return `booking_form_${stage}`;
+    };
+    const markFormStart = () => {
+      if (formStarted) return;
+      formStarted = true;
+      trackMetrikaGoal(funnelGoal('start'), {path: window.location.pathname});
+      if (funnelPrefix) trackMetrikaGoal('landing_form_start', {path: window.location.pathname, landing: funnelPrefix});
+    };
+    form.querySelectorAll('input, select, textarea').forEach((field) => {
+      field.addEventListener('input', markFormStart, {once:true});
+      field.addEventListener('change', markFormStart, {once:true});
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -160,6 +270,22 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      trackMetrikaGoal('parent_confirmation_shown', {path: window.location.pathname});
+      const parentConfirmed = await confirmParentSubmission();
+      if (!parentConfirmed) {
+        trackMetrikaGoal('parent_confirmation_cancelled', {path: window.location.pathname});
+        return;
+      }
+      trackMetrikaGoal('parent_confirmation_confirmed', {path: window.location.pathname});
+
+      trackMetrikaGoal(funnelGoal('submit'), {
+        path: window.location.pathname,
+        class: String(formData.get('class') || ''),
+        goal: String(formData.get('goal') || '')
+      });
+
+      if (funnelPrefix) trackMetrikaGoal('landing_form_submit', {path: window.location.pathname, landing: funnelPrefix});
+
       const payload = {
         name: parentNameResult.value,
         student: studentNameResult.value,
@@ -176,7 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (notice) {
           notice.style.display = 'block';
           notice.classList.add('notice-error');
-          notice.textContent = 'Не удалось отправить заявку. Напишите администратору: @kotomathadmin.';
+          notice.textContent = 'Не удалось отправить заявку. Напишите нам в Telegram: @kotomatica100.';
         }
         return;
       }
@@ -216,13 +342,23 @@ document.addEventListener('DOMContentLoaded', () => {
           notice.textContent = 'Готово! Заявка отправлена. Мы свяжемся с вами по указанному контакту.';
         }
 
+        trackMetrikaGoal(funnelGoal('success'), {
+          path: window.location.pathname,
+          class: payload.class,
+          goal: payload.goal
+        });
+
+        if (funnelPrefix) trackMetrikaGoal('landing_form_success', {path: window.location.pathname, landing: funnelPrefix});
+
         form.reset();
       } catch (error) {
         console.error('Booking submit error:', error);
+        trackMetrikaGoal(funnelGoal('error'), {path: window.location.pathname});
+        if (funnelPrefix) trackMetrikaGoal('landing_form_error', {path: window.location.pathname, landing: funnelPrefix});
         if (notice) {
           notice.style.display = 'block';
           notice.classList.add('notice-error');
-          notice.innerHTML = 'Не удалось отправить заявку автоматически. Напишите администратору в Telegram: <a href="https://t.me/kotomathadmin" target="_blank" rel="noopener">@kotomathadmin</a>.';
+          notice.innerHTML = 'Не удалось отправить заявку автоматически. Напишите администратору в Telegram: <a href="https://t.me/kotomatica100" target="_blank" rel="noopener">@kotomatica100</a>.';
         }
       } finally {
         clearTimeout(timer);
