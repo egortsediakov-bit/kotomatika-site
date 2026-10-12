@@ -887,3 +887,10 @@ button:disabled{opacity:.65;cursor:wait}
   .home-help-item p{font-size:13px}
   .home-help-arrow{width:24px;height:24px;font-size:14px}
 }
+
+/* Home / How lessons work: no decorative glyphs on the dark section. */
+body.home-conversion section#how::before,
+body.home-conversion section#how::after {
+  content: none !important;
+  display: none !important;
+}
