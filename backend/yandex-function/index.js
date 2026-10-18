@@ -38,10 +38,15 @@ module.exports.handler = async function(event) {
     goal: clean(p.goal,120),
     contact: clean(p.contact,200),
     comment: clean(p.comment,1000),
-    source: clean(p.source,500)
+    source: clean(p.source,500),
+    consentAccepted: p.consentAccepted === true,
+    consentVersion: clean(p.consentVersion,40),
+    consentAcceptedAt: clean(p.consentAcceptedAt,50),
+    consentCollectedAt: new Date().toISOString(),
+    parentRepresentativeConfirmed: p.parentRepresentativeConfirmed === true
   };
 
-  if (!payload.name || !payload.student || !payload.class || !payload.goal || !payload.contact) {
+  if (!payload.name || !payload.student || !payload.class || !payload.goal || !payload.contact || !payload.consentAccepted || !payload.parentRepresentativeConfirmed || payload.consentVersion !== '2026-10-18') {
     return response(400, {ok:false,error:'Required fields are missing'}, allowedOrigin);
   }
 
