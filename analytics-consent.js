@@ -28,7 +28,7 @@
     const b=document.createElement('div'); b.className='pd-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-label','Настройки аналитики');
     b.innerHTML='<p><strong>Аналитика сайта</strong>. С вашего разрешения мы включим Яндекс Метрику, чтобы улучшать сайт. Это необязательно для записи на занятие. <a href="/analytics-consent/">Условия согласия на аналитику</a> и <a href="/privacy/">Политика ПДн</a>.</p><div class="pd-cookie-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-reject>Не разрешать</button></div>';
     b.querySelector('[data-accept]').addEventListener('click',()=>{saveChoice('yes');b.remove();startAnalytics();});
-    b.querySelector('[data-reject]').addEventListener('click',()=>{saveChoice('no');b.remove();});
+    b.querySelector('[data-reject]').addEventListener('click',()=>{const running=initialized;saveChoice('no');b.remove();if(running)window.location.reload();});
     document.body.appendChild(b);
   }
   function addControl() {
