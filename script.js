@@ -270,6 +270,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const consentBox = form.querySelector('input[name="consent"]');
+      if (!consentBox?.checked) {
+        if (notice) {
+          notice.style.display = 'block';
+          notice.classList.add('notice-error');
+          notice.textContent = 'Для отправки заявки необходимо дать отдельное согласие на обработку персональных данных.';
+        }
+        return;
+      }
+
       trackMetrikaGoal('parent_confirmation_shown', {path: window.location.pathname});
       const parentConfirmed = await confirmParentSubmission();
       if (!parentConfirmed) {
@@ -293,7 +303,11 @@ document.addEventListener('DOMContentLoaded', () => {
         goal: String(formData.get('goal') || '').trim(),
         contact: contactResult.value,
         comment: String(formData.get('comment') || '').trim(),
-        source: window.location.href
+        source: window.location.href,
+        consentAccepted: true,
+        consentVersion: '2026-10-18',
+        consentAcceptedAt: new Date().toISOString(),
+        parentRepresentativeConfirmed: true
       };
 
       const apiUrl = String(window.KOTOMATIKA_API_URL || '').trim();

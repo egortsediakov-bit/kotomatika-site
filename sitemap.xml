@@ -84,4 +84,6 @@
   <url>
     <loc>https://kotomatika.ru/privacy/</loc>
   </url>
+  <url><loc>https://kotomatika.ru/consent/</loc></url>
+  <url><loc>https://kotomatika.ru/analytics-consent/</loc></url>
 </urlset>
