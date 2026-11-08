@@ -1,6 +1,8 @@
 /* Kotomatika: optional web analytics only after separate opt-in. */
 (function () {
   'use strict';
+  var SCRIPT = document.currentScript;
+  var BASE = (SCRIPT && SCRIPT.src) ? new URL('./', SCRIPT.src).href : '/';
   const KEY = 'kotomatika_analytics_20261018';
   const COUNTER = 112505956;
   const getChoice = () => { try { return localStorage.getItem(KEY); } catch (_) { return null; } };
@@ -20,13 +22,13 @@
   }
   function addStyles() {
     const style = document.createElement('style');
-    style.textContent = '.pd-cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:9000;max-width:750px;margin:auto;background:#fff;color:#242424;border:1px solid #e8e1d9;border-radius:18px;box-shadow:0 16px 70px #0003;padding:18px 22px;font:14px/1.5 Arial,sans-serif}.pd-cookie p{margin:0 0 12px}.pd-cookie a{color:#c45d29;text-decoration:underline}.pd-cookie-actions{display:flex;flex-wrap:wrap;gap:8px}.pd-cookie button{padding:10px 17px;border-radius:11px;border:1px solid #bcb6af;background:#fff;cursor:pointer;font-weight:bold}.pd-cookie button[data-accept]{background:#e86c2f;color:#fff;border-color:#e86c2f}.pd-cookie-setting{border:0!important;background:transparent!important;color:inherit!important;text-decoration:underline;cursor:pointer;font:inherit!important;padding:2px 0!important}';
+    style.textContent = '.pd-cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:9000;max-width:750px;margin:auto;background:#fff;color:#242424;border:1px solid #e8e1d9;border-radius:18px;box-shadow:0 16px 70px #0003;padding:18px 22px;font:500 14px/1.5 Manrope,Arial,sans-serif}.pd-cookie p{margin:0 0 12px}.pd-cookie a{color:#c45d29;text-decoration:underline}.pd-cookie-actions{display:flex;flex-wrap:wrap;gap:8px}.pd-cookie button{padding:10px 17px;border-radius:11px;border:1px solid #bcb6af;background:#fff;cursor:pointer;font-weight:bold}.pd-cookie button[data-accept]{background:#e86c2f;color:#fff;border-color:#e86c2f}.pd-cookie-setting{border:0!important;background:transparent!important;color:inherit!important;text-decoration:underline;cursor:pointer;font:inherit!important;padding:2px 0!important}';
     document.head.appendChild(style);
   }
   function showChoice() {
     if (document.querySelector('.pd-cookie')) return;
     const b=document.createElement('div'); b.className='pd-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-label','Настройки аналитики');
-    b.innerHTML='<p><strong>Аналитика сайта</strong>. С вашего разрешения мы включим Яндекс Метрику, чтобы улучшать сайт. Это необязательно для записи на занятие. <a href="/analytics-consent/">Условия согласия на аналитику</a> и <a href="/privacy/">Политика ПДн</a>.</p><div class="pd-cookie-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-reject>Не разрешать</button></div>';
+    b.innerHTML='<p><strong>Аналитика сайта</strong>. С вашего разрешения мы включим Яндекс Метрику, чтобы улучшать сайт. Это необязательно для записи на занятие. <a href="'+BASE+'analytics-consent/">Условия согласия на аналитику</a> и <a href="'+BASE+'privacy/">Политика ПДн</a>.</p><div class="pd-cookie-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-reject>Не разрешать</button></div>';
     b.querySelector('[data-accept]').addEventListener('click',()=>{saveChoice('yes');b.remove();startAnalytics();});
     b.querySelector('[data-reject]').addEventListener('click',()=>{const running=initialized;saveChoice('no');b.remove();if(running)window.location.reload();});
     document.body.appendChild(b);
