@@ -992,3 +992,4 @@ form[data-booking] input.is-invalid,form[data-booking] textarea.is-invalid{borde
 @media (prefers-reduced-motion:reduce){.thanks-confetti{display:none}.thanks-check{animation:none}}
 form[data-booking] .consent-label{font-size:14px;line-height:1.5;color:#444}
 @media (max-width:600px){.km-chips--num{grid-template-columns:repeat(auto-fill,minmax(44px,1fr))}}
+
