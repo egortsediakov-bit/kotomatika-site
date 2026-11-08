@@ -1047,3 +1047,6 @@ body.bonus-popup-open{overflow:hidden}
 @media(prefers-reduced-motion:reduce){
   .bonus-popup__close,.bonus-popup__submit{transition:none}
 }
+
+/* Keep the required parent-confirmation modal above the welcome popup. */
+body.bonus-popup-open .parent-confirm-modal{z-index:2100}
