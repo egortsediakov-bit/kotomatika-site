@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Котоматика — онлайн-школа математики | Репетитор по математике онлайн">
 <meta name="twitter:description" content="Котоматика — онлайн-школа математики. Индивидуальные занятия, закрытие пробелов, подготовка к ОГЭ и ЕГЭ.">
 <meta name="twitter:image" content="https://kotomatika.ru/assets/og-image.jpg">
-<link rel="stylesheet" href="styles.css?v=20261106-gift1">
+<link rel="stylesheet" href="styles.css?v=20261108-popup1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Котоматика","url":"https://kotomatika.ru","logo":"https://kotomatika.ru/assets/kotomatika-cat.png","description":"Онлайн-школа математики: индивидуальные занятия, подготовка к ОГЭ и ЕГЭ."}</script>
 </head>
 <body class="home-conversion">
@@ -197,8 +197,85 @@
   <div><strong>Помощь</strong><a href="/faq/">FAQ</a><a href="/contacts/">Контакты</a><a href="/booking/">Отдельная страница записи</a></div>
 </div><div class="container footer-bottom">© 2026 Котоматика · <a href="/privacy/">Политика конфиденциальности</a> · <a href="/terms/">Публичная оферта</a></div></footer>
 
+
+<!-- Бонус при первом знакомстве: скрыт до первого входа, не мешает основной форме. -->
+<div class="bonus-popup" id="bonus-popup" hidden>
+  <div class="bonus-popup__shade" data-bonus-dismiss></div>
+  <div class="bonus-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="bonus-popup-title" aria-describedby="bonus-popup-description" tabindex="-1">
+    <button type="button" class="bonus-popup__close" aria-label="Закрыть окно" data-bonus-dismiss>×</button>
+    <div class="bonus-popup__intro">
+      <div class="bonus-popup__eyebrow"><span class="bonus-popup__dot" aria-hidden="true"></span> ПОДАРОК ОТ КОТОМАТИКИ</div>
+      <h2 id="bonus-popup-title">Начните разбираться в математике <em>без стресса</em></h2>
+      <p id="bonus-popup-description">Оставьте заявку — поможем найти подход к ребёнку и подарим полезную памятку.</p>
+      <div class="bonus-popup__benefits">
+        <div class="bonus-popup__benefit">
+          <span class="bonus-popup__num">01</span>
+          <div><strong>Первый урок — бесплатно</strong><small>Познакомимся с учеником и разберём его задачу.</small></div>
+        </div>
+        <div class="bonus-popup__benefit">
+          <span class="bonus-popup__num">02</span>
+          <div><strong>Чек-лист по математике</strong><small>5 навыков для вашего класса — сразу после заявки.</small></div>
+        </div>
+      </div>
+      <div class="bonus-popup__foot">Никакой обязательной покупки после знакомства.</div>
+    </div>
+    <div class="bonus-popup__form-side">
+      <div class="bonus-popup__form-head">
+        <p class="bonus-popup__form-eyebrow">ПЕРВЫЙ ШАГ</p>
+        <h3>Получите оба бонуса</h3>
+        <p>Пара слов о ребёнке — и мы свяжемся с вами.</p>
+      </div>
+      <form class="bonus-popup__form" data-booking data-metrika-prefix="bonus_popup">
+        <div class="bonus-popup__fields">
+          <div class="bonus-popup__field">
+            <label for="bonus-parent">Ваше имя</label>
+            <input id="bonus-parent" name="name" autocomplete="name" placeholder="Как к вам обращаться?" required pattern="[A-Za-zА-Яа-яЁё -]+">
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-student">Имя ученика</label>
+            <input id="bonus-student" name="student" autocomplete="off" placeholder="Имя ребёнка" required pattern="[A-Za-zА-Яа-яЁё -]+">
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-class">Класс</label>
+            <select id="bonus-class" name="class" required>
+              <option value="">Выберите класс</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+              <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+            </select>
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-goal">Цель занятий</label>
+            <select id="bonus-goal" name="goal" required>
+              <option value="">Выберите цель</option>
+              <option>Школьная математика</option>
+              <option>Закрыть пробелы</option>
+              <option>Олимпиадная математика</option>
+              <option>ОГЭ</option>
+              <option>ЕГЭ</option>
+              <option>Поступление в школу / класс</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="bonus-popup__field bonus-popup__field--wide">
+            <label for="bonus-contact">Телефон или Telegram</label>
+            <input id="bonus-contact" name="contact" autocomplete="tel" autocapitalize="off" spellcheck="false" placeholder="+7 999 123-45-67 или @username" required>
+          </div>
+        </div>
+        <label class="bonus-popup__consent">
+          <input type="checkbox" name="consent" required>
+          <span>Я родитель или законный представитель ученика и согласен на обработку наших данных для заявки. <a href="/consent/">Текст согласия</a> · <a href="/privacy/">Политика данных</a>.</span>
+        </label>
+        <button class="bonus-popup__submit" type="submit">Получить бонусы <span aria-hidden="true">→</span></button>
+        <p class="bonus-popup__hint">Чек-лист откроется после успешной отправки заявки.</p>
+        <div class="notice" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <a class="home-mobile-cta" href="#lead-form" data-metrika-goal="home_mobile_sticky">Бесплатный урок + чек-лист</a>
 <script src="config.js?v=20260921-conversion2"></script>
 <script src="script.js?v=20261106-thankyou1"></script>
+<script defer src="lead-popup.js?v=20261108-v1"></script>
 </body>
 </html>
