@@ -27,8 +27,8 @@
   }
   function showChoice() {
     if (document.querySelector('.pd-cookie')) return;
-    const b=document.createElement('div'); b.className='pd-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-label','Настройки аналитики');
-    b.innerHTML='<p><strong>Аналитика сайта</strong>. С вашего разрешения мы включим Яндекс Метрику, чтобы улучшать сайт. Это необязательно для записи на занятие. <a href="'+BASE+'analytics-consent/">Условия согласия на аналитику</a> и <a href="'+BASE+'privacy/">Политика ПДн</a>.</p><div class="pd-cookie-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-reject>Не разрешать</button></div>';
+    const b=document.createElement('div'); b.className='pd-cookie';b.setAttribute('role','dialog');b.setAttribute('aria-label','Настройки cookie и аналитики');
+    b.innerHTML='<p><strong>Cookie и аналитика сайта</strong>. С вашего разрешения мы включим Яндекс Метрику: она использует файлы cookie, чтобы мы видели, как пользуются сайтом, и улучшали его. Пока вы не нажмёте «Разрешить», такие cookie не устанавливаются. Это необязательно для записи на занятие. <a href="'+BASE+'analytics-consent/">Условия согласия на аналитику</a> и <a href="'+BASE+'privacy/">Политика ПДн</a>.</p><div class="pd-cookie-actions"><button type="button" data-accept>Разрешить</button><button type="button" data-reject>Не разрешать</button></div>';
     b.querySelector('[data-accept]').addEventListener('click',()=>{saveChoice('yes');b.remove();startAnalytics();});
     b.querySelector('[data-reject]').addEventListener('click',()=>{const running=initialized;saveChoice('no');b.remove();if(running)window.location.reload();});
     document.body.appendChild(b);
@@ -36,7 +36,7 @@
   function addControl() {
     const footer=document.querySelector('.footer-bottom') || document.querySelector('.footer-legal') || document.querySelector('footer');
     if(!footer) return;
-    const btn=document.createElement('button');btn.type='button';btn.className='pd-cookie-setting';btn.textContent='Настройки аналитики';btn.addEventListener('click',()=>showChoice());
+    const btn=document.createElement('button');btn.type='button';btn.className='pd-cookie-setting';btn.textContent='Настройки cookie и аналитики';btn.addEventListener('click',()=>showChoice());
     const wrap=document.createElement('span');wrap.style.marginLeft='12px';wrap.appendChild(btn);footer.appendChild(wrap);
   }
   function init(){
