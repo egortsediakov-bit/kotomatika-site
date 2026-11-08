@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Котоматика — онлайн-школа математики | Репетитор по математике онлайн">
 <meta name="twitter:description" content="Котоматика — онлайн-школа математики. Индивидуальные занятия, закрытие пробелов, подготовка к ОГЭ и ЕГЭ.">
 <meta name="twitter:image" content="https://kotomatika.ru/assets/og-image.jpg">
-<link rel="stylesheet" href="styles.css?v=20261012-howfix1">
+<link rel="stylesheet" href="styles.css?v=20261108-popup1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"EducationalOrganization","name":"Котоматика","url":"https://kotomatika.ru","logo":"https://kotomatika.ru/assets/kotomatika-cat.png","description":"Онлайн-школа математики: индивидуальные занятия, подготовка к ОГЭ и ЕГЭ."}</script>
 </head>
 <body class="home-conversion">
@@ -46,10 +46,15 @@
       <div class="eyebrow">Котоматика · онлайн-школа математики 1–11 класс</div>
       <h1>С нами ваш ребёнок поймёт математику</h1>
       <p class="home-hero-lead">Разбираем школьную программу, закрываем пробелы и готовим к ОГЭ, ЕГЭ и олимпиадам. Объясняем спокойно, последовательно и простыми словами.</p>
+      <a class="home-magnet" href="#lead-form" data-metrika-goal="home_gift_hero_click">
+        <span class="home-magnet-icon" aria-hidden="true">✓</span>
+        <span><strong>Подарок после заявки: чек-лист по вашему классу</strong><small>5 навыков по математике — получите сразу после отправки формы.</small></span>
+        <span class="home-magnet-arrow" aria-hidden="true">→</span>
+      </a>
       <div class="home-pills" aria-label="Форматы обучения"><span>1–11 класс</span><span>ОГЭ и ЕГЭ</span><span>Индивидуально и в группе</span><span>Первый урок бесплатно</span></div>
       <div class="actions">
-        <a class="btn primary" href="/teachers/" data-metrika-goal="home_hero_teachers">Познакомиться с преподавателями</a>
-        <a class="btn ghost" href="#how" data-metrika-goal="home_hero_how">Как проходят занятия</a>
+        <a class="btn primary" href="#lead-form" data-metrika-goal="home_hero_gift_cta">Бесплатный урок + чек-лист →</a>
+        <a class="btn ghost" href="/teachers/" data-metrika-goal="home_hero_teachers">Наши преподаватели</a>
       </div>
       <p class="home-microcopy">Первый урок бесплатный. Решение о продолжении — после знакомства.</p>
     </div>
@@ -143,17 +148,17 @@
   <div class="home-lead-intro">
     <div class="eyebrow">Бесплатный первый урок</div>
     <h2>Подберём преподавателя под вашего ребёнка</h2>
-    <p>Расскажите только самое необходимое: класс, цель и контакт. Мы свяжемся, уточним ситуацию и предложим подходящего преподавателя и формат занятий.</p>
+    <p>Расскажите класс, цель и контакт — подберём подходящего преподавателя. <strong>Сразу после заявки вы получите чек-лист из 5 навыков по математике именно для вашего класса.</strong></p>
     <div class="home-lead-trust">
       <div><strong>01</strong><span>Без обязательной покупки после заявки</span></div>
       <div><strong>02</strong><span>Первый урок — бесплатно</span></div>
-      <div><strong>03</strong><span>Заявку подтверждает родитель или представитель</span></div>
+      <div><strong>03</strong><span>Памятка по вашему классу откроется сразу после отправки</span></div>
     </div>
   </div>
 
   <div class="home-lead-card">
     <div class="home-lead-top">
-      <div><div class="eyebrow">Первый шаг</div><h2>Расскажите о задаче</h2><p>Короткая форма — остальное уточним сами при первом разговоре.</p></div>
+      <div><div class="eyebrow">Первый шаг</div><h2>Расскажите о задаче</h2><p>Первый урок бесплатно. После заявки сразу покажем чек-лист по выбранному классу.</p></div>
       <img src="assets/kotomatika-cat.png" alt="Кот Котоматики" loading="lazy">
     </div>
     <form data-booking data-home-booking>
@@ -164,7 +169,7 @@
         <div><label for="home-goal">Что нужно?</label><select id="home-goal" name="goal" required><option value="">Выберите цель</option><option>Школьная математика</option><option>Закрыть пробелы</option><option>Олимпиадная математика</option><option>ОГЭ</option><option>ЕГЭ</option><option>Поступление в школу / класс</option><option>Другое</option></select></div>
         <div class="full"><label for="home-contact">Телефон или Telegram</label><input id="home-contact" name="contact" autocomplete="tel" autocapitalize="off" spellcheck="false" placeholder="+7 999 123-45-67 или @username" required></div>
         <div class="full consent-row"><label class="consent-label"><input type="checkbox" name="consent" required><span>Даю согласие на обработку моих данных и данных ученика для рассмотрения заявки. Подтверждаю, что я родитель или законный представитель ученика. <a href="/consent/">Текст согласия</a> · <a href="/privacy/">Политика обработки данных</a>.</span></label></div>
-        <div class="full"><button class="btn primary home-submit" type="submit">Получить бесплатный первый урок</button><div class="notice" role="status" aria-live="polite"></div></div>
+        <div class="full"><button class="btn primary home-submit" type="submit">Записаться и открыть чек-лист →</button><p class="home-form-gift-note">Чек-лист откроется после успешной отправки заявки. Оплачивать ничего не нужно.</p><div class="notice" role="status" aria-live="polite"></div></div>
       </div>
     </form>
   </div>
@@ -182,7 +187,7 @@
   </div>
 </div></section>
 
-<section class="section home-final"><div class="container"><div class="home-final-card"><div><div class="eyebrow">Первый шаг</div><h2>Начните с бесплатного первого урока</h2><p>Расскажите класс и цель — подберём преподавателя и предложим подходящий формат.</p></div><a class="btn dark" href="#lead-form" data-metrika-goal="home_final_cta">Подобрать преподавателя</a></div></div></section>
+<section class="section home-final"><div class="container"><div class="home-final-card"><div><div class="eyebrow">Первый шаг</div><h2>Начните с бесплатного первого урока</h2><p>Расскажите класс и цель — подберём преподавателя и предложим подходящий формат.</p></div><a class="btn dark" href="#lead-form" data-metrika-goal="home_final_cta">Первый урок + чек-лист</a></div></div></section>
 </main>
 
 <footer class="footer"><div class="container footer-grid">
@@ -192,8 +197,85 @@
   <div><strong>Помощь</strong><a href="/faq/">FAQ</a><a href="/contacts/">Контакты</a><a href="/booking/">Отдельная страница записи</a></div>
 </div><div class="container footer-bottom">© 2026 Котоматика · <a href="/privacy/">Политика конфиденциальности</a> · <a href="/terms/">Публичная оферта</a></div></footer>
 
-<a class="home-mobile-cta" href="#lead-form" data-metrika-goal="home_mobile_sticky">Бесплатный первый урок</a>
+
+<!-- Бонус при первом знакомстве: скрыт до первого входа, не мешает основной форме. -->
+<div class="bonus-popup" id="bonus-popup" hidden>
+  <div class="bonus-popup__shade" data-bonus-dismiss></div>
+  <div class="bonus-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="bonus-popup-title" aria-describedby="bonus-popup-description" tabindex="-1">
+    <button type="button" class="bonus-popup__close" aria-label="Закрыть окно" data-bonus-dismiss>×</button>
+    <div class="bonus-popup__intro">
+      <div class="bonus-popup__eyebrow"><span class="bonus-popup__dot" aria-hidden="true"></span> ПОДАРОК ОТ КОТОМАТИКИ</div>
+      <h2 id="bonus-popup-title">Начните разбираться в математике <em>без стресса</em></h2>
+      <p id="bonus-popup-description">Оставьте заявку — поможем найти подход к ребёнку и подарим полезную памятку.</p>
+      <div class="bonus-popup__benefits">
+        <div class="bonus-popup__benefit">
+          <span class="bonus-popup__num">01</span>
+          <div><strong>Первый урок — бесплатно</strong><small>Познакомимся с учеником и разберём его задачу.</small></div>
+        </div>
+        <div class="bonus-popup__benefit">
+          <span class="bonus-popup__num">02</span>
+          <div><strong>Чек-лист по математике</strong><small>5 навыков для вашего класса — сразу после заявки.</small></div>
+        </div>
+      </div>
+      <div class="bonus-popup__foot">Никакой обязательной покупки после знакомства.</div>
+    </div>
+    <div class="bonus-popup__form-side">
+      <div class="bonus-popup__form-head">
+        <p class="bonus-popup__form-eyebrow">ПЕРВЫЙ ШАГ</p>
+        <h3>Получите оба бонуса</h3>
+        <p>Пара слов о ребёнке — и мы свяжемся с вами.</p>
+      </div>
+      <form class="bonus-popup__form" data-booking data-metrika-prefix="bonus_popup">
+        <div class="bonus-popup__fields">
+          <div class="bonus-popup__field">
+            <label for="bonus-parent">Ваше имя</label>
+            <input id="bonus-parent" name="name" autocomplete="name" placeholder="Как к вам обращаться?" required pattern="[A-Za-zА-Яа-яЁё -]+">
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-student">Имя ученика</label>
+            <input id="bonus-student" name="student" autocomplete="off" placeholder="Имя ребёнка" required pattern="[A-Za-zА-Яа-яЁё -]+">
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-class">Класс</label>
+            <select id="bonus-class" name="class" required>
+              <option value="">Выберите класс</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option>
+              <option>7</option><option>8</option><option>9</option><option>10</option><option>11</option>
+            </select>
+          </div>
+          <div class="bonus-popup__field">
+            <label for="bonus-goal">Цель занятий</label>
+            <select id="bonus-goal" name="goal" required>
+              <option value="">Выберите цель</option>
+              <option>Школьная математика</option>
+              <option>Закрыть пробелы</option>
+              <option>Олимпиадная математика</option>
+              <option>ОГЭ</option>
+              <option>ЕГЭ</option>
+              <option>Поступление в школу / класс</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="bonus-popup__field bonus-popup__field--wide">
+            <label for="bonus-contact">Телефон или Telegram</label>
+            <input id="bonus-contact" name="contact" autocomplete="tel" autocapitalize="off" spellcheck="false" placeholder="+7 999 123-45-67 или @username" required>
+          </div>
+        </div>
+        <label class="bonus-popup__consent">
+          <input type="checkbox" name="consent" required>
+          <span>Я родитель или законный представитель ученика и согласен на обработку наших данных для заявки. <a href="/consent/">Текст согласия</a> · <a href="/privacy/">Политика данных</a>.</span>
+        </label>
+        <button class="bonus-popup__submit" type="submit">Получить бонусы <span aria-hidden="true">→</span></button>
+        <p class="bonus-popup__hint">Чек-лист откроется после успешной отправки заявки.</p>
+        <div class="notice" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<a class="home-mobile-cta" href="#lead-form" data-metrika-goal="home_mobile_sticky">Бесплатный урок + чек-лист</a>
 <script src="config.js?v=20260921-conversion2"></script>
-<script src="script.js?v=20261018-pd1"></script>
+<script src="script.js?v=20261106-thankyou1"></script>
+<script defer src="lead-popup.js?v=20261108-v1"></script>
 </body>
 </html>

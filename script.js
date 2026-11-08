@@ -335,6 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 12000);
+      let submittedSuccessfully = false;
 
       try {
         const response = await fetch(apiUrl, {
@@ -364,7 +365,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (funnelPrefix) trackMetrikaGoal('landing_form_success', {path: window.location.pathname, landing: funnelPrefix});
 
+        // Redirect only after a confirmed API response (HTTP 2xx + data.ok === true).
+        // The URL and session state contain only the grade, never names or contacts.
+        const giftGrade = /^(?:[1-9]|10|11)$/.test(payload.class) ? payload.class : '4';
+        try {
+          window.sessionStorage.setItem('kotomatika-lead-success', giftGrade);
+        } catch (storageError) {
+          console.warn('Session storage is unavailable:', storageError);
+        }
+        const thankYouUrl = new URL(siteRoot + 'thank-you/?grade=' + encodeURIComponent(giftGrade), window.location.origin).href;
+        submittedSuccessfully = true;
         form.reset();
+        // Give analytics a brief opportunity to send the existing success goal.
+        window.setTimeout(() => window.location.assign(thankYouUrl), 250);
       } catch (error) {
         console.error('Booking submit error:', error);
         trackMetrikaGoal(funnelGoal('error'), {path: window.location.pathname});
@@ -376,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } finally {
         clearTimeout(timer);
-        if (submitButton) {
+        if (submitButton && !submittedSuccessfully) {
           submitButton.disabled = false;
           submitButton.textContent = submitButton.dataset.originalText || 'Записаться на бесплатный урок';
         }
