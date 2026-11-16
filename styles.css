@@ -1,7 +1,26 @@
+/* Шрифты: Onest — основной текст, Unbounded — заголовки (свои файлы, без Google Fonts) */
+@font-face{font-family:'Onest';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/onest-cyrillic-400-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/onest-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Onest';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/onest-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/onest-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Onest';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/onest-cyrillic-600-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/onest-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Onest';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/onest-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/onest-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/unbounded-cyrillic-300-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/unbounded-latin-300-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/unbounded-cyrillic-400-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/unbounded-latin-400-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/unbounded-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/unbounded-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/unbounded-cyrillic-600-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/unbounded-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/unbounded-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Unbounded';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/unbounded-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap');
+
 :root{--orange:#ED591A;--orange2:#FF6A00;--black:#000;--gray:#DBDBDB;--white:#fff;--ink:#151515;--muted:#666;--bg:#f5f5f3;--radius:28px;--container:1360px;--shadow:0 18px 60px rgba(0,0,0,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Onest',Arial,Helvetica,sans-serif;line-height:1.55}
 h1,h2,h3,h4,.brand,.nav a,.btn,.eyebrow,.badge,.metric strong,.tag,.price strong,.faq-q{font-family:'Unbounded',Arial,sans-serif}
 h1{font-size:clamp(42px,6vw,78px);line-height:1.03;letter-spacing:-.055em}h2{font-size:clamp(32px,4vw,54px);line-height:1.08;letter-spacing:-.04em}h3{font-size:20px;line-height:1.25}h1,h2,h3,p{margin-top:0}
 a{color:inherit;text-decoration:none}.container{width:min(var(--container),calc(100% - 40px));margin:auto}
@@ -27,7 +46,7 @@ a{color:inherit;text-decoration:none}.container{width:min(var(--container),calc(
 .list{padding:0;margin:20px 0;list-style:none}.list li{padding:9px 0;border-bottom:1px solid #eee}
 .faq{border-top:1px solid #ddd}.faq-item{border-bottom:1px solid #ddd}.faq-q{width:100%;background:none;border:0;text-align:left;padding:22px 0;font:600 13px 'Unbounded';display:flex;justify-content:space-between;cursor:pointer}.faq-a{max-width:760px;padding:0 0 22px;color:#666;display:none}.faq-item.open .faq-a{display:block}
 .form-wrap{max-width:760px;margin:auto;background:#fff;border-radius:30px;padding:34px;box-shadow:var(--shadow)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{font:600 10px 'Unbounded';display:block;margin-bottom:8px}input,select,textarea{width:100%;border:1px solid #ddd;border-radius:14px;padding:15px;font:15px Arial;background:#fff;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--orange)}textarea{min-height:120px;resize:vertical}.full{grid-column:1/-1}.notice{display:none;margin-top:14px;padding:14px;border-radius:14px;background:#eef8ee;color:#226022}
+label{font:600 10px 'Unbounded';display:block;margin-bottom:8px}input,select,textarea{width:100%;border:1px solid #ddd;border-radius:14px;padding:15px;font:15px 'Onest',Arial,sans-serif;background:#fff;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--orange)}textarea{min-height:120px;resize:vertical}.full{grid-column:1/-1}.notice{display:none;margin-top:14px;padding:14px;border-radius:14px;background:#eef8ee;color:#226022}
 .footer{background:#000;color:#fff;padding:50px 0 30px}.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:30px}.footer a{display:block;color:#aaa;margin:8px 0;font-size:13px}.footer a:hover{color:#fff}.footer-bottom{border-top:1px solid #222;margin-top:35px;padding-top:20px;color:#777;font-size:12px}
 .cta{border-radius:34px;padding:50px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:30px}.cta p{max-width:600px;color:rgba(255,255,255,.85)}
 .hero-small{padding:70px 0 45px}.hero-small h1{max-width:900px}.breadcrumb{font:500 10px 'Unbounded';color:#777;margin-bottom:24px}.note{font-size:12px;color:#777}.seo-links{display:flex;flex-wrap:wrap;gap:10px}.seo-links a{padding:10px 13px;background:#fff;border:1px solid #e4e4e1;border-radius:12px;font:500 10px 'Unbounded'}.seo-links a:hover{border-color:var(--orange);color:var(--orange)}
@@ -35,7 +54,7 @@ label{font:600 10px 'Unbounded';display:block;margin-bottom:8px}input,select,tex
 @media(max-width:900px){.nav{display:none}.menu{display:block}.navbar .btn{display:none}.hero-grid,.split,.profile{grid-template-columns:1fr}.hero-card{min-height:420px}.grid-4{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.container{width:min(100% - 28px,var(--container))}.hero{padding-top:45px}.section{padding:64px 0}.grid-2,.grid-3,.grid-4,.form-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:15px}.hero-card{min-height:360px}.hero-card img{width:80%}.actions .btn{width:100%}.cta{padding:30px;display:block}.cta .btn{margin-top:16px;width:100%}.footer-grid{grid-template-columns:1fr}.profile-photo{min-height:360px}}
 
-.reviews-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.review-card{background:#fff;border:1px solid rgba(237,89,26,.28);border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.04)}.review-quote{font:700 58px/0.7 Arial,sans-serif;color:var(--orange);margin-bottom:18px}.review-card p{font-size:17px;line-height:1.6;margin:0 0 22px}.review-meta{font-size:11px;color:#777;font-family:'Unbounded',Arial,sans-serif}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}.review-card p{font-size:16px}}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.review-card{background:#fff;border:1px solid rgba(237,89,26,.28);border-radius:24px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.04)}.review-quote{font:700 58px/0.7 'Onest',Arial,sans-serif;color:var(--orange);margin-bottom:18px}.review-card p{font-size:17px;line-height:1.6;margin:0 0 22px}.review-meta{font-size:11px;color:#777;font-family:'Unbounded',Arial,sans-serif}@media(max-width:600px){.reviews-grid{grid-template-columns:1fr}.review-card p{font-size:16px}}
 
 /* Final pricing layout */
 .pricing-grid.grid-4{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
@@ -478,7 +497,7 @@ body::after{
 .btn{font-size:12px}
 .class-slider-wrap{display:flex;align-items:center;gap:14px;width:100%;position:relative}
 .class-slider-wrap .class-slider{flex:1;min-width:0}
-.class-arrow{flex:0 0 48px;width:48px;height:48px;border:1px solid rgba(0,0,0,.14);border-radius:50%;background:#fff;color:#111;font:400 34px/1 Arial,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease;z-index:2}
+.class-arrow{flex:0 0 48px;width:48px;height:48px;border:1px solid rgba(0,0,0,.14);border-radius:50%;background:#fff;color:#111;font:400 34px/1 'Onest',Arial,sans-serif;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease;z-index:2}
 .class-arrow:hover{transform:scale(1.06);background:#fff3ed;border-color:var(--orange);color:var(--orange)}
 .class-arrow:disabled{opacity:.35;cursor:default;transform:none;background:#fff;border-color:rgba(0,0,0,.08);color:#999}
 .class-slider{scroll-snap-type:x proximity}
@@ -498,7 +517,7 @@ body::after{
 .groups-hero-mark:after{width:430px;height:430px}
 .groups-hero-mark span{font:700 76px Georgia,serif;color:var(--orange);position:relative;z-index:1}
 .groups-hero-mark strong{font:700 30px Georgia,serif;position:relative;z-index:1}
-.groups-hero-mark small{margin-top:18px;font:500 10px Arial,sans-serif;color:#777;position:relative;z-index:1}
+.groups-hero-mark small{margin-top:18px;font:500 10px 'Onest',Arial,sans-serif;color:#777;position:relative;z-index:1}
 .groups-pricing{padding-top:72px}
 .groups-pricing-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .groups-price-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:30px;padding:34px;box-shadow:0 14px 45px rgba(0,0,0,.055);position:relative;overflow:hidden}
@@ -507,7 +526,7 @@ body::after{
 .groups-card-number{font:600 11px 'Unbounded',Arial,sans-serif;color:#aaa}
 .groups-price-card h3{font-size:25px;margin:12px 0 18px}
 .groups-price{font:600 clamp(34px,4vw,52px)/1 'Unbounded',Arial,sans-serif;letter-spacing:-.06em;margin-bottom:22px}
-.groups-price small{font:500 11px Arial,sans-serif;letter-spacing:0;color:#777}
+.groups-price small{font:500 11px 'Onest',Arial,sans-serif;letter-spacing:0;color:#777}
 .groups-price-card p{color:#5f5f5f;min-height:74px}
 .groups-price-card ul{list-style:none;padding:0;margin:24px 0 28px}
 .groups-price-card li{padding:12px 0;border-top:1px solid #eee;font-size:14px}
@@ -523,7 +542,7 @@ body::after{
 @media(max-width:600px){.groups-hero{padding:48px 0 56px}.groups-hero h1{font-size:42px}.groups-hero p{font-size:16px}.groups-hero-mark{min-height:230px}.groups-feature-grid{grid-template-columns:1fr}.groups-price-card{padding:26px}.groups-price-card p{min-height:0}}
 
 /* Teachers section — real team profiles */
-.teachers-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:end}.teachers-intro p{font-size:18px;color:#666;max-width:620px}.teacher-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.teacher-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:32px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr;min-height:410px;box-shadow:0 12px 36px rgba(0,0,0,.045);transition:transform .25s,box-shadow .25s}.teacher-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.08)}.teacher-card-photo{background:#f0f0ee;min-height:410px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}.teacher-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}.teacher-card-copy{padding:30px;display:flex;flex-direction:column}.teacher-card-copy h2{font-size:30px;margin-bottom:10px}.teacher-card-copy .lead{font-size:16px;line-height:1.45;margin-bottom:18px}.teacher-card-copy .edu{font-size:12px;color:#666;margin-bottom:14px}.teacher-card-copy .tags{margin:0 0 18px}.teacher-card-copy .btn{margin-top:auto;align-self:flex-start}.teacher-number{display:none}.teacher-detail{display:grid;grid-template-columns:minmax(300px,.75fr) 1.25fr;gap:56px;align-items:start}.teacher-detail-photo{position:sticky;top:110px;background:#f0f0ee;border-radius:34px;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}.teacher-detail-photo img{width:100%;height:620px;object-fit:cover;object-position:center top}.teacher-detail-copy h1{margin-bottom:18px}.teacher-detail-copy .lead{font-size:22px;line-height:1.35;max-width:760px}.teacher-fact{padding:22px 0;border-top:1px solid #ddd}.teacher-fact strong{display:block;font:600 11px 'Unbounded','Manrope',Arial,sans-serif;text-transform:uppercase;color:var(--orange);margin-bottom:9px}.teacher-detail-copy .btn{margin-top:14px}.team-note{background:#111;color:#fff;border-radius:32px;padding:42px}.team-note p{color:#aaa;max-width:650px}.team-note .btn{margin-top:10px}
+.teachers-intro{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:end}.teachers-intro p{font-size:18px;color:#666;max-width:620px}.teacher-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.teacher-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:32px;overflow:hidden;display:grid;grid-template-columns:.8fr 1.2fr;min-height:410px;box-shadow:0 12px 36px rgba(0,0,0,.045);transition:transform .25s,box-shadow .25s}.teacher-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.08)}.teacher-card-photo{background:#f0f0ee;min-height:410px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}.teacher-card-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}.teacher-card-copy{padding:30px;display:flex;flex-direction:column}.teacher-card-copy h2{font-size:30px;margin-bottom:10px}.teacher-card-copy .lead{font-size:16px;line-height:1.45;margin-bottom:18px}.teacher-card-copy .edu{font-size:12px;color:#666;margin-bottom:14px}.teacher-card-copy .tags{margin:0 0 18px}.teacher-card-copy .btn{margin-top:auto;align-self:flex-start}.teacher-number{display:none}.teacher-detail{display:grid;grid-template-columns:minmax(300px,.75fr) 1.25fr;gap:56px;align-items:start}.teacher-detail-photo{position:sticky;top:110px;background:#f0f0ee;border-radius:34px;min-height:620px;overflow:hidden;display:flex;align-items:flex-end;justify-content:center}.teacher-detail-photo img{width:100%;height:620px;object-fit:cover;object-position:center top}.teacher-detail-copy h1{margin-bottom:18px}.teacher-detail-copy .lead{font-size:22px;line-height:1.35;max-width:760px}.teacher-fact{padding:22px 0;border-top:1px solid #ddd}.teacher-fact strong{display:block;font:600 11px 'Unbounded','Onest',Arial,sans-serif;text-transform:uppercase;color:var(--orange);margin-bottom:9px}.teacher-detail-copy .btn{margin-top:14px}.team-note{background:#111;color:#fff;border-radius:32px;padding:42px}.team-note p{color:#aaa;max-width:650px}.team-note .btn{margin-top:10px}
 @media(max-width:900px){.teachers-intro,.teacher-detail{grid-template-columns:1fr}.teacher-grid{grid-template-columns:1fr}.teacher-detail-photo{position:relative;top:auto;min-height:460px}.teacher-detail-photo img{height:460px}.teacher-card{grid-template-columns:.9fr 1.1fr}}
 @media(max-width:600px){.teacher-card{grid-template-columns:1fr}.teacher-card-photo{height:330px;min-height:330px}.teacher-card-copy h2{font-size:25px}.teacher-detail-copy .lead{font-size:18px}}
 
@@ -689,7 +708,7 @@ body::after{
 
 /* Booking form: production lead submission */
 .consent-row{margin-top:2px}
-.consent-label{display:flex;align-items:flex-start;gap:10px;font:500 12px/1.45 Arial;color:#555;margin:0}
+.consent-label{display:flex;align-items:flex-start;gap:10px;font:500 12px/1.45 'Onest',Arial,sans-serif;color:#555;margin:0}
 .consent-label input[type="checkbox"]{width:18px;height:18px;min-width:18px;margin:1px 0 0;accent-color:var(--orange)}
 .consent-label a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .notice a{color:inherit;font-weight:700}
@@ -717,7 +736,7 @@ button:disabled{opacity:.65;cursor:wait}
 .home-results-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.home-result-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:28px;padding:30px;min-height:240px}.home-result-card.home-result-accent{background:var(--orange);color:#fff;border-color:var(--orange)}.home-result-label{font:600 9px 'Unbounded';text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:38px}.home-result-accent .home-result-label{color:#fff}.home-result-card h3{font-size:24px;line-height:1.3}.home-result-card p{color:#666}.home-result-accent p{color:rgba(255,255,255,.83)}
 .home-section-action{display:flex;justify-content:center;margin-top:30px}
 .home-teacher-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.home-teacher-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:25px;overflow:hidden;transition:.22s}.home-teacher-card:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(0,0,0,.07)}.home-teacher-card img{width:100%;height:290px;object-fit:cover;object-position:center top;background:#eee}.home-teacher-card>div{padding:21px}.home-teacher-card h3{margin-bottom:8px}.home-teacher-card p{font-size:13px;color:#666;margin:0}
-.home-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.home-price-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:28px;padding:30px;display:flex;flex-direction:column;min-height:355px}.home-price-card h3{font-size:22px;margin:12px 0 12px}.home-price{font:600 clamp(28px,3vw,40px)/1.1 'Unbounded';letter-spacing:-.05em;margin:18px 0}.home-price small{font:500 10px Arial;letter-spacing:0;color:#777}.home-price-card p{color:#666;flex:1}.home-price-card .btn{width:100%;margin-top:20px}
+.home-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.home-price-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:28px;padding:30px;display:flex;flex-direction:column;min-height:355px}.home-price-card h3{font-size:22px;margin:12px 0 12px}.home-price{font:600 clamp(28px,3vw,40px)/1.1 'Unbounded';letter-spacing:-.05em;margin:18px 0}.home-price small{font:500 10px 'Onest',Arial,sans-serif;letter-spacing:0;color:#777}.home-price-card p{color:#666;flex:1}.home-price-card .btn{width:100%;margin-top:20px}
 .home-classes{padding-top:60px}.home-classes .class-slider-track a{font-size:11px;padding:13px 17px}
 .home-faq{max-width:920px;margin:0 auto}.home-faq .faq-q{font-size:14px}.home-faq .faq-a{font-size:15px;line-height:1.7}
 .home-final{padding-top:36px}.home-final-card{border-radius:34px;padding:48px;background:var(--orange);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:30px}.home-final-card .eyebrow{color:#fff}.home-final-card h2{margin-bottom:12px}.home-final-card p{color:rgba(255,255,255,.86);margin:0}.home-final-card .btn{flex:0 0 auto}
@@ -757,7 +776,7 @@ button:disabled{opacity:.65;cursor:wait}
 @media(max-width:600px){.conversion-landing{padding-bottom:72px}.landing-hero{padding:38px 0 48px}.landing-hero-copy h1{font-size:41px}.landing-hero-lead{font-size:17px}.landing-hero-copy .actions{display:none}.landing-pills{gap:7px}.landing-pills span{font-size:9px;padding:8px 10px}.landing-lead-card{padding:22px;border-radius:26px}.landing-lead-top{grid-template-columns:1fr 70px}.landing-lead-top img{width:70px;height:70px;border-radius:20px}.landing-form-grid{grid-template-columns:1fr}.landing-benefit-grid{grid-template-columns:1fr}.landing-benefit-card{min-height:0}.landing-teacher-card{grid-template-columns:115px 1fr;min-height:205px}.landing-teacher-card img{min-height:205px}.landing-teacher-card>div{padding:18px}.landing-teacher-card h3{font-size:23px}.landing-teacher-card .tags{display:none}.landing-price-panel{padding:28px}.landing-final-card{display:block;padding:30px}.landing-final-card .btn{width:100%;margin-top:20px}.landing-format-card{padding:24px}.landing-team-avatars{transform:scale(.86);transform-origin:left center}.landing-mobile-cta{display:flex;position:fixed;left:14px;right:14px;bottom:12px;z-index:80;min-height:52px;align-items:center;justify-content:center;border-radius:15px;background:var(--orange);color:#fff;box-shadow:0 14px 38px rgba(0,0,0,.22);font:600 11px 'Unbounded',Arial,sans-serif}.conversion-landing .footer{padding-bottom:90px}}
 
 /* Conversion V2 review blocks */
-.landing-review-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.landing-review-card{background:#fff;border:1px solid rgba(237,89,26,.25);border-radius:28px;padding:30px;min-height:240px}.landing-review-quote{font:700 58px/0.7 Arial,sans-serif;color:var(--orange);margin-bottom:22px}.landing-review-card p{font-size:17px;line-height:1.6;margin:0 0 25px}.landing-review-card span{display:block;font:500 10px 'Unbounded',Arial,sans-serif;color:#777}.landing-reviews-section{padding-top:70px}@media(max-width:700px){.landing-review-grid{grid-template-columns:1fr}.landing-review-card{min-height:0}.landing-review-card p{font-size:16px}}
+.landing-review-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.landing-review-card{background:#fff;border:1px solid rgba(237,89,26,.25);border-radius:28px;padding:30px;min-height:240px}.landing-review-quote{font:700 58px/0.7 'Onest',Arial,sans-serif;color:var(--orange);margin-bottom:22px}.landing-review-card p{font-size:17px;line-height:1.6;margin:0 0 25px}.landing-review-card span{display:block;font:500 10px 'Unbounded',Arial,sans-serif;color:#777}.landing-reviews-section{padding-top:70px}@media(max-width:700px){.landing-review-grid{grid-template-columns:1fr}.landing-review-card{min-height:0}.landing-review-card p{font-size:16px}}
 
 
 /* Parent confirmation before lead submission */
@@ -905,15 +924,9 @@ body.home-conversion section#how::after {
 .footer .footer-bottom{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
 .footer .footer-bottom .pd-cookie-setting{margin:0}
 
-/* ===== Шрифт второстепенного текста: Manrope (свой хостинг, без Google) ===== */
-@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-cyrillic-500-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-cyrillic-600-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-cyrillic-700-normal.woff2') format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/manrope-latin-500-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/manrope-latin-600-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:'Manrope';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/manrope-latin-700-normal.woff2') format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+/* ===== Шрифт второстепенного текста: 'Onest' (свой хостинг, без Google) ===== */
 
-:root{--font-secondary:'Manrope',Arial,Helvetica,sans-serif}
+:root{--font-secondary:'Onest',Arial,Helvetica,sans-serif}
 
 /* Подвал: крупнее, плотнее и контрастнее */
 .footer,.footer a,.footer p,.footer-bottom,.footer-legal,.footer-requisites{font-family:var(--font-secondary)}
@@ -997,6 +1010,9 @@ form[data-booking] .consent-label{font-size:14px;line-height:1.5;color:#444}
 /* списки в карточке преподавателя */
 .teacher-fact ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
 .teacher-fact li{line-height:1.45;color:inherit}
-/* текст преподавателя — тем же шрифтом Manrope, что и остальной второстепенный текст сайта */
+/* текст преподавателя — тем же шрифтом 'Onest', что и остальной второстепенный текст сайта */
 .teacher-detail-copy .lead,.teacher-fact p,.teacher-fact li,.teacher-card-copy .lead,.teacher-card-copy .edu{font-family:var(--font-secondary);font-weight:500}
 .teacher-fact p,.teacher-fact li{font-size:16px}
+
+/* Onest: вводные абзацы чуть плотнее, как в выбранном образце */
+.lead,.home-hero-copy>p,.landing-hero-copy>p,.hero p,.hero-small p,.page-hero p,.section-head p{font-weight:500}
