@@ -993,3 +993,7 @@ form[data-booking] input.is-invalid,form[data-booking] textarea.is-invalid{borde
 form[data-booking] .consent-label{font-size:14px;line-height:1.5;color:#444}
 @media (max-width:600px){.km-chips--num{grid-template-columns:repeat(auto-fill,minmax(44px,1fr))}}
 
+
+/* списки в карточке преподавателя */
+.teacher-fact ul{margin:8px 0 0;padding-left:20px;display:grid;gap:6px}
+.teacher-fact li{line-height:1.45;color:inherit}
