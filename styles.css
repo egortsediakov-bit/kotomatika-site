@@ -1016,3 +1016,26 @@ form[data-booking] .consent-label{font-size:14px;line-height:1.5;color:#444}
 
 /* Onest: вводные абзацы чуть плотнее, как в выбранном образце */
 .lead,.home-hero-copy>p,.landing-hero-copy>p,.hero p,.hero-small p,.page-hero p,.section-head p{font-weight:500}
+
+/* ===== О школе (2026-11-18) ===== */
+.about-lead{max-width:780px;margin-top:22px;font-size:20px;line-height:1.55}
+.about-founders{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.about-photo{margin:0}
+.about-photo img{display:block;width:100%;height:auto;border-radius:30px;box-shadow:0 18px 50px rgba(0,0,0,.10)}
+.about-photo figcaption{margin-top:12px;color:#777;font-size:14px}
+.about-founders-copy h2{margin:6px 0 18px}
+.about-founders-copy>p{font-size:17px;line-height:1.65;color:#333}
+.founder-mini{display:grid;gap:4px;margin-top:16px;padding:18px 20px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:20px}
+.founder-mini b{font-family:'Unbounded',Arial,sans-serif;font-size:15px}
+.founder-mini span{color:#444;line-height:1.5}
+.founder-mini a{color:var(--orange);font-weight:600;text-decoration:none;margin-top:4px}
+.about-ideas .card{display:grid;gap:10px;align-content:start}
+.about-ideas h3{font-size:19px;margin:0}
+.about-ideas p{margin:0;color:#444;line-height:1.6}
+.about-idea-num{font:700 13px 'Unbounded',Arial,sans-serif;color:var(--orange)}
+.about-ideas-note{margin:26px 0 0;font-size:18px;font-weight:500}
+.about-honest{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:40px;align-items:start;padding:40px}
+.about-honest h2{margin:6px 0 0}
+.about-honest p{margin:0 0 12px;font-size:17px;line-height:1.65;color:#333}
+.about-team-link{margin:30px 0 0}
+@media(max-width:900px){.about-founders,.about-honest{grid-template-columns:1fr;gap:28px}.about-ideas{grid-template-columns:1fr}.about-honest{padding:26px}.about-lead{font-size:18px}}
