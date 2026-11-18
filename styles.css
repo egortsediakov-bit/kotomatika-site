@@ -1039,3 +1039,17 @@ form[data-booking] .consent-label{font-size:14px;line-height:1.5;color:#444}
 .about-honest p{margin:0 0 12px;font-size:17px;line-height:1.65;color:#333}
 .about-team-link{margin:30px 0 0}
 @media(max-width:900px){.about-founders,.about-honest{grid-template-columns:1fr;gap:28px}.about-ideas{grid-template-columns:1fr}.about-honest{padding:26px}.about-lead{font-size:18px}}
+
+/* ===== Узкие экраны (Android 320–400px, увеличенный шрифт в системе) — 2026-11-18 ===== */
+@media(max-width:700px){
+  /* элементы сеток и колонок не растягиваются по самому длинному слову */
+  :where(main) :where(*){min-width:0}
+  h1,h2,h3,h4{overflow-wrap:break-word}
+  p,li,a,span,strong{overflow-wrap:break-word}
+}
+@media(max-width:480px){
+  /* Unbounded широкий: длинные слова («Преподаватели», «Индивидуальные») должны помещаться в строку */
+  h1{font-size:clamp(26px,9vw,42px)!important;letter-spacing:-.045em}
+  h2{font-size:clamp(23px,7.6vw,34px)}
+  .price-label{position:static;display:inline-block;margin:0 0 12px}
+}
