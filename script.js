@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
         comment: composedComment,
         source: window.location.href,
         consentAccepted: true,
-        consentVersion: '2026-10-18',
+        consentVersion: '2026-11-18',
         consentAcceptedAt: new Date().toISOString(),
         parentRepresentativeConfirmed: true
       };
